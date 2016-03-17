@@ -27,28 +27,32 @@ class TMModelTests: XCTestCase {
         let dic = [
             "id": "4096",
             "name": "Teemo",
+            "sampleDigit": 666,
             "sampleArray": [1, 2, 3, 4, 5, 6],
             "sampleDic": ["lang": "Swift", "ver": "2.1"]
         ]
-        
+
         let student = Student.generateModel(dic)
-        // prints 4096
         print(student.id)
-        // prints Teemo
+        // prints 4096
         print(student.name)
-        // prints [1, 2, 3, 4, 5, 6]
+        // prints Teemo
+        print(student.sampleDigit)
+        // prints 666
         print(student.sampleArray)
-        // prints ["lang": "Swift", "ver": "2.1"]]
+        // prints [1, 2, 3, 4, 5, 6]
         print(student.sampleDic)
-        
+        // prints ["lang": "Swift", "ver": "2.1"]]
+
         let data = Student.convertToDictionary(student)
+        print(data)
         // prints [
         //    "id": "4096",
         //    "name": "Teemo",
+        //    "sampleDigit": 666,
         //    "sampleArray": [1, 2, 3, 4, 5, 6],
         //    "sampleDic": ["lang": "Swift", "ver": "2.1"]
         //]
-        print(data)
     }
     
     func testPerformanceExample() {
@@ -61,8 +65,9 @@ class TMModelTests: XCTestCase {
 }
 
 final class Student: NSObject, JSONConvertible {
-    var id: String?
-    var name: String?
-    var sampleArray: [Int]?
-    var sampleDic: [String: AnyObject]?
+    var id = ""
+    var name = ""
+    var sampleDigit = 0
+    var sampleArray = [Int]()
+    var sampleDic = [String: AnyObject]()
 }
