@@ -32,12 +32,22 @@ class TMModelTests: XCTestCase {
         ]
         
         let student = Student.generateModel(dic)
+        // prints 4096
         print(student.id)
+        // prints Teemo
         print(student.name)
+        // prints [1, 2, 3, 4, 5, 6]
         print(student.sampleArray)
+        // prints ["lang": "Swift", "ver": "2.1"]]
         print(student.sampleDic)
         
         let data = Student.convertToDictionary(student)
+        // prints [
+        //    "id": "4096",
+        //    "name": "Teemo",
+        //    "sampleArray": [1, 2, 3, 4, 5, 6],
+        //    "sampleDic": ["lang": "Swift", "ver": "2.1"]
+        //]
         print(data)
     }
     
@@ -50,7 +60,7 @@ class TMModelTests: XCTestCase {
     
 }
 
-final class Student: NSObject, Model {
+final class Student: NSObject, JSONConvertible {
     var id: String?
     var name: String?
     var sampleArray: [Int]?

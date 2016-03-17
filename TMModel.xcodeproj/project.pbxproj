@@ -10,7 +10,7 @@
 		CFA858281C9A957100117D48 /* TMModel.h in Headers */ = {isa = PBXBuildFile; fileRef = CFA858271C9A957100117D48 /* TMModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CFA8582F1C9A957100117D48 /* TMModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA858241C9A957000117D48 /* TMModel.framework */; };
 		CFA858341C9A957100117D48 /* TMModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA858331C9A957100117D48 /* TMModelTests.swift */; };
-		CFA8583F1C9A959600117D48 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA8583E1C9A959600117D48 /* Model.swift */; };
+		CFA8583F1C9A959600117D48 /* JSONConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA8583E1C9A959600117D48 /* JSONConvertible.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +30,7 @@
 		CFA8582E1C9A957100117D48 /* TMModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA858331C9A957100117D48 /* TMModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMModelTests.swift; sourceTree = "<group>"; };
 		CFA858351C9A957100117D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CFA8583E1C9A959600117D48 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		CFA8583E1C9A959600117D48 /* JSONConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONConvertible.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 			children = (
 				CFA858271C9A957100117D48 /* TMModel.h */,
 				CFA858291C9A957100117D48 /* Info.plist */,
-				CFA8583E1C9A959600117D48 /* Model.swift */,
+				CFA8583E1C9A959600117D48 /* JSONConvertible.swift */,
 			);
 			path = TMModel;
 			sourceTree = "<group>";
@@ -197,7 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFA8583F1C9A959600117D48 /* Model.swift in Sources */,
+				CFA8583F1C9A959600117D48 /* JSONConvertible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +383,7 @@
 				CFA8583A1C9A957100117D48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CFA8583B1C9A957100117D48 /* Build configuration list for PBXNativeTarget "TMModelTests" */ = {
 			isa = XCConfigurationList;
@@ -391,6 +392,7 @@
 				CFA8583D1C9A957100117D48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

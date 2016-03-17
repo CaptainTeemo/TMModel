@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  JSONConvertible.swift
 //  TMModel
 //
 //  Created by CaptainTeemo on 3/17/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol Model {
+public protocol JSONConvertible {
     /**
      Generate a model using a JSON dictionary.
      
@@ -28,7 +28,7 @@ public protocol Model {
     static func convertToDictionary(model: Self) -> [String: AnyObject]
 }
 
-extension Model where Self: NSObject {
+extension JSONConvertible where Self: NSObject {
     
     init() {
         self.init()
