@@ -31,13 +31,13 @@ class TMModelTests: XCTestCase {
             "sampleDic": ["lang": "Swift", "ver": "2.1"]
         ]
         
-        let dev = Developer.generateModel(dic)
+        let dev = Student.generateModel(dic)
         print(dev.id)
         print(dev.name)
         print(dev.sampleArray)
         print(dev.sampleDic)
         
-        let data = Developer.convertToDictionary(dev)
+        let data = Student.convertToDictionary(dev)
         print(data)
     }
     
@@ -50,7 +50,7 @@ class TMModelTests: XCTestCase {
     
 }
 
-final class Developer: NSObject, Model {
+final class Student: NSObject, Model {
     var id: String?
     var name: String?
     var sampleArray: [Int]?

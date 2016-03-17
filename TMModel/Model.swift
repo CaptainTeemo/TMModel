@@ -21,20 +21,14 @@ extension Model where Self: NSObject {
     
     static func generateModel(data: [String: AnyObject]) -> Self {
         let model = Self()
-        for (key, value) in data {
-            model.setValue(value, forKey: key)
-        }
+        data.forEach { model.setValue($1, forKey: $0) }
         return model
     }
     
     static func convertToDictionary(model: Self) -> [String: AnyObject] {
         let mirror = Mirror(reflecting: model)
         var dic = [String: AnyObject]()
-        for child in mirror.children {
-            if let key = child.label, let value = unwrap(child.value) as? AnyObject {
-                dic[key] = value
-            }
-        }
+        mirror.children.forEach { if let key = $0, let value = unwrap($1) as? AnyObject { dic[key] = value } }
         return dic
     }
 }
