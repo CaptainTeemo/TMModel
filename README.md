@@ -37,6 +37,7 @@ print(data)
 // prints [
 //    "id": "4096",
 //    "name": "Teemo",
+//    "sampleDigit": 666,
 //    "sampleArray": [1, 2, 3, 4, 5, 6],
 //    "sampleDic": ["lang": "Swift", "ver": "2.1"]
 //]
