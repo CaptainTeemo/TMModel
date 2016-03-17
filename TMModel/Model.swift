@@ -8,8 +8,23 @@
 
 import Foundation
 
-protocol Model {
+public protocol Model {
+    /**
+     Generate a model using a JSON dictionary.
+     
+     - parameter data: JSON dictionary.
+     
+     - returns: A model object with value assigned.
+     */
     static func generateModel(data: [String: AnyObject]) -> Self
+    
+    /**
+     Convert given model to JSON dictionary.
+     
+     - parameter model: A model object.
+     
+     - returns: A JSON dictionary with properties' names as keys.
+     */
     static func convertToDictionary(model: Self) -> [String: AnyObject]
 }
 

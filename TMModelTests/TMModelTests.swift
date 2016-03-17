@@ -31,13 +31,13 @@ class TMModelTests: XCTestCase {
             "sampleDic": ["lang": "Swift", "ver": "2.1"]
         ]
         
-        let dev = Student.generateModel(dic)
-        print(dev.id)
-        print(dev.name)
-        print(dev.sampleArray)
-        print(dev.sampleDic)
+        let student = Student.generateModel(dic)
+        print(student.id)
+        print(student.name)
+        print(student.sampleArray)
+        print(student.sampleDic)
         
-        let data = Student.convertToDictionary(dev)
+        let data = Student.convertToDictionary(student)
         print(data)
     }
     
