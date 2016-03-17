@@ -26,20 +26,16 @@ extension Model where Self: NSObject {
     }
     
     static func convertToDictionary(model: Self) -> [String: AnyObject] {
-        let mirror = Mirror(reflecting: model)
         var dic = [String: AnyObject]()
-        mirror.children.forEach { if let key = $0, let value = unwrap($1) as? AnyObject { dic[key] = value } }
+        var outCount: UInt32 = 0
+        let properties = class_copyPropertyList(Self.self, &outCount)
+        for i in 0..<Int(outCount) {
+            let property = properties[i]
+            if let key = String(CString: property_getName(property), encoding: NSUTF8StringEncoding) {
+                let value = model.valueForKey(key)
+                dic[key] = value
+            }
+        }
         return dic
     }
-}
-
-private func unwrap(subject: Any) -> Any? {
-    var value: Any?
-    let mirrored = Mirror(reflecting:subject)
-    if mirrored.displayStyle != .Optional {
-        value = subject
-    } else if let firstChild = mirrored.children.first {
-        value = firstChild.value
-    }
-    return value
 }
