@@ -5,15 +5,17 @@ An elegant, protocol-oriented tool, help convert JSON to Model or vice versa.
 ## At a glance
 ```swift
 final class Student: NSObject, JSONConvertible {
-    var id: String?
-    var name: String?
-    var sampleArray: [Int]?
-    var sampleDic: [String: AnyObject]?
+    var id = ""
+    var name = ""
+    var sampleDigit = 0
+    var sampleArray = [Int]()
+    var sampleDic = [String: AnyObject]()
 }
 
 let dic = [
     "id": "4096",
     "name": "Teemo",
+    "sampleDigit": 666,
     "sampleArray": [1, 2, 3, 4, 5, 6],
     "sampleDic": ["lang": "Swift", "ver": "2.1"]
 ]
@@ -21,18 +23,16 @@ let dic = [
 let student = Student.generateModel(dic)
 print(student.id)
 // prints 4096
-
 print(student.name)
 // prints Teemo
-
+print(student.sampleDigit)
+// prints 666
 print(student.sampleArray)
 // prints [1, 2, 3, 4, 5, 6]
-
 print(student.sampleDic)
 // prints ["lang": "Swift", "ver": "2.1"]]
 
 let data = Student.convertToDictionary(student)
-
 print(data)
 // prints [
 //    "id": "4096",
