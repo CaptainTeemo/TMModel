@@ -27,18 +27,32 @@ class TMModelTests: XCTestCase {
         let dic = [
             "id": "4096",
             "name": "Teemo",
+            "sampleDigit": 666,
             "sampleArray": [1, 2, 3, 4, 5, 6],
             "sampleDic": ["lang": "Swift", "ver": "2.1"]
         ]
         
-        let dev = Student.generateModel(dic)
-        print(dev.id)
-        print(dev.name)
-        print(dev.sampleArray)
-        print(dev.sampleDic)
-        
-        let data = Student.convertToDictionary(dev)
+        let student = Student.generateModel(dic)
+        print(student.id)
+        // prints 4096
+        print(student.name)
+        // prints Teemo
+        print(student.sampleDigit)
+        // prints 666
+        print(student.sampleArray)
+        // prints [1, 2, 3, 4, 5, 6]
+        print(student.sampleDic)
+        // prints ["lang": "Swift", "ver": "2.1"]]
+
+        let data = Student.convertToDictionary(student)
         print(data)
+        // prints [
+        //    "id": "4096",
+        //    "name": "Teemo",
+        //    "sampleDigit": 666,
+        //    "sampleArray": [1, 2, 3, 4, 5, 6],
+        //    "sampleDic": ["lang": "Swift", "ver": "2.1"]
+        // ]
     }
     
     func testPerformanceExample() {
@@ -50,9 +64,10 @@ class TMModelTests: XCTestCase {
     
 }
 
-final class Student: NSObject, Model {
-    var id: String?
-    var name: String?
-    var sampleArray: [Int]?
-    var sampleDic: [String: AnyObject]?
+final class Student: NSObject, JSONConvertible {
+    var id = ""
+    var name = ""
+    var sampleDigit = 0
+    var sampleArray = [Int]()
+    var sampleDic = [String: AnyObject]()
 }
