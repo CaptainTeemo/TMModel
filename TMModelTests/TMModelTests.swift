@@ -24,6 +24,10 @@ class TMModelTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+    }
+    
+    func testLocal() {
         let dic = [
             "id": "4096",
             "name": "Teemo",
@@ -58,6 +62,44 @@ class TMModelTests: XCTestCase {
         // ]
     }
     
+    func testRemote() {
+        func requestTestApi(done: ([[String: AnyObject]]) -> Void, failed: (NSError?) -> Void) {
+            NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: "http://jsonplaceholder.typicode.com/users")!) { (data, response, error) -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    guard let d = data else {
+                        failed(error)
+                        return
+                    }
+                    do {
+                        let json = try NSJSONSerialization.JSONObjectWithData(d, options: .MutableLeaves) as! [[String: AnyObject]]
+                        done(json)
+                    } catch let parseError as NSError {
+                        failed(parseError)
+                    }
+                })
+            }.resume()
+        }
+        
+        let expectation = self.expectationWithDescription("remote")
+        
+        requestTestApi({ (result) -> Void in
+            for json in result {
+                let user = User.generateModel(json)
+                user.printDescription()
+                
+                let data = User.convertToDictionary(user)
+                print(data)
+            }
+            
+            expectation.fulfill()
+            }) { (error) -> Void in
+                print(error?.description)
+                expectation.fulfill()
+        }
+        
+        self.waitForExpectationsWithTimeout(30, handler: nil)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock {
@@ -73,4 +115,18 @@ final class Student: NSObject, JSONConvertible {
     var sampleFloat: Float = 0
     var sampleArray = [Int]()
     var sampleDic = [String: AnyObject]()
+}
+
+final class User: NSObject, JSONConvertible {
+    var id = ""
+    var name = ""
+    var email = ""
+    var address = [String: AnyObject]()
+    var phone = ""
+    var website = ""
+    var company = [String: AnyObject]()
+    
+    func printDescription() {
+        print("id: \(id)\n name: \(name)\n email: \(email)\n address: \(address)\n phone: \(phone)\n website: \(website)\n company: \(company)")
+    }
 }
