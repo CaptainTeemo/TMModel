@@ -28,6 +28,7 @@ class TMModelTests: XCTestCase {
             "id": "4096",
             "name": "Teemo",
             "sampleDigit": 666,
+            "sampleFloat": 0.22222,
             "sampleArray": [1, 2, 3, 4, 5, 6],
             "sampleDic": ["lang": "Swift", "ver": "2.1"]
         ]
@@ -39,6 +40,8 @@ class TMModelTests: XCTestCase {
         // prints Teemo
         print(student.sampleDigit)
         // prints 666
+        print(student.sampleFloat)
+        // prints 0.22222
         print(student.sampleArray)
         // prints [1, 2, 3, 4, 5, 6]
         print(student.sampleDic)
@@ -67,6 +70,7 @@ final class Student: NSObject, JSONConvertible {
     var id = ""
     var name = ""
     var sampleDigit = 0
+    var sampleFloat: Float = 0
     var sampleArray = [Int]()
     var sampleDic = [String: AnyObject]()
 }
