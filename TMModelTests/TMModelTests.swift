@@ -43,7 +43,7 @@ class TMModelTests: XCTestCase {
         // prints [1, 2, 3, 4, 5, 6]
         print(student.sampleDic)
         // prints ["lang": "Swift", "ver": "2.1"]]
-
+        
         let data = Student.convertToDictionary(student)
         print(data)
         // prints [
@@ -61,7 +61,6 @@ class TMModelTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
 }
 
 final class Student: NSObject, JSONConvertible {
