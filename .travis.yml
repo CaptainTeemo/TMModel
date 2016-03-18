@@ -4,6 +4,10 @@ language: swift
 # after_success:
 # - bash <(curl -s https://codecov.io/bash)
 
+script: ./test.sh
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
 osx_image: xcode7.2
 xcode_project: TMModel.xcodeproj
 # xcode_workspace: <WORKSPACE_PLACEHOLDER>
