@@ -1,4 +1,10 @@
 language: swift
+script:
+  - xctool -project TMModel.xcodeproj -scheme TMModel \
+build test -sdk iphonesimulator GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
+after_success:
+- bash <(curl -s https://codecov.io/bash)
+
 osx_image: xcode7.2
 xcode_project: TMModel.xcodeproj
 # xcode_workspace: <WORKSPACE_PLACEHOLDER>
@@ -23,8 +29,3 @@ on:
   repo: repo/repo
   tags: true
 
-script:
-  - xctool -project TMModel.xcodeproj -scheme TMModel \
-build test -sdk iphonesimulator GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
-after_success:
-- bash <(curl -s https://codecov.io/bash)
