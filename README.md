@@ -44,6 +44,9 @@ print(data)
 //    "sampleDic": ["lang": "Swift", "ver": "2.1"]
 //]
 ```
+## Requirements
+* iOS 8.0+
+* Xcode 7.2+
 
 ## Carthage
 Put `github "CaptainTeemo/TMModel"` in your cartfile and run `carthage update` from terminal, then drag built framework to you project.
