@@ -28,7 +28,7 @@ public protocol JSONConvertible {
     static func convertToDictionary(model: Self) -> [String: AnyObject]
 }
 
-extension JSONConvertible where Self: NSObject {
+public extension JSONConvertible where Self: NSObject {
     
     init() {
         self.init()
