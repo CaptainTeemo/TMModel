@@ -9,22 +9,7 @@
 import Foundation
 
 public protocol JSONConvertible {
-    /**
-     Generate a model using a JSON dictionary.
-     
-     - parameter data: JSON dictionary.
-     
-     - returns: A model object with value assigned.
-     */
     static func generateModel(data: [String: AnyObject]) -> Self
-    
-    /**
-     Convert given model to JSON dictionary.
-     
-     - parameter model: A model object.
-     
-     - returns: A JSON dictionary with properties' names as keys.
-     */
     static func convertToDictionary(model: Self) -> [String: AnyObject]
 }
 
@@ -34,12 +19,26 @@ public extension JSONConvertible where Self: NSObject {
         self.init()
     }
     
+    /**
+     Generate a model using a JSON dictionary.
+     
+     - parameter data: JSON dictionary.
+     
+     - returns: A model object with value assigned.
+     */
     static func generateModel(data: [String: AnyObject]) -> Self {
         let model = Self()
         data.forEach { model.setValue($1, forKey: $0) }
         return model
     }
     
+    /**
+     Convert given model to JSON dictionary.
+     
+     - parameter model: A model object.
+     
+     - returns: A JSON dictionary with properties' names as keys.
+     */
     static func convertToDictionary(model: Self) -> [String: AnyObject] {
         var dic = [String: AnyObject]()
         var outCount: UInt32 = 0
