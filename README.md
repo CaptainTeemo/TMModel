@@ -50,6 +50,7 @@ print(data)
 
 ## Carthage
 Put `github "CaptainTeemo/TMModel"` in your cartfile and run `carthage update` from terminal, then drag built framework to you project.
+
 That's all.
 
 ## Step by step
