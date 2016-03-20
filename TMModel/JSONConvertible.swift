@@ -28,7 +28,17 @@ public extension JSONConvertible where Self: NSObject {
      */
     static func generateModel(data: [String: AnyObject]) -> Self {
         let model = Self()
-        data.forEach { model.setValue($1, forKey: $0) }
+        
+        for (key, value) in data {
+            guard model.respondsToSelector(Selector("\(key)")) else {
+                continue
+            }
+            if let number = value as? NSNumber {
+                model.setValue("\(number)", forKey: key)
+            } else {
+                model.setValue(value, forKey: key)
+            }
+        }
         return model
     }
     
