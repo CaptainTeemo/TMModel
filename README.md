@@ -55,7 +55,7 @@ Put `github "CaptainTeemo/TMModel"` in your cartfile and run `carthage update` f
 That's all.
 
 ## Step by step
-1. Make your model class inheritance from NSObject
+1. Make your model class inheriting from NSObject
 2. Mark your class as final
 3. Conform to protocol JSONConvertible
 4. Declare all properties you need from JSON
