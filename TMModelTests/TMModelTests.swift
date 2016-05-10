@@ -87,7 +87,7 @@ class TMModelTests: XCTestCase {
                 let user = User.generateModel(json)
                 user.printDescription()
                 
-                let data = User.convertToDictionary(user)
+                let data = user.convertToDictionary()
                 print(data)
             }
             
@@ -98,35 +98,5 @@ class TMModelTests: XCTestCase {
         }
         
         self.waitForExpectationsWithTimeout(30, handler: nil)
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
-    }
-}
-
-final class Student: NSObject, JSONConvertible {
-    var id = ""
-    var name = ""
-    var sampleDigit = 0
-    var sampleFloat: Float = 0
-    var sampleArray = [Int]()
-    var sampleDic = [String: AnyObject]()
-}
-
-final class User: NSObject, JSONConvertible {
-    var id = ""
-    var name = ""
-    var email = ""
-    var address = [String: AnyObject]()
-    var phone = ""
-    var website = ""
-    var company = [String: AnyObject]()
-    
-    func printDescription() {
-        print("id: \(id)\n name: \(name)\n email: \(email)\n address: \(address)\n phone: \(phone)\n website: \(website)\n company: \(company)")
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF6864FF1CE1E9BC004B79C7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6864FE1CE1E9BC004B79C7 /* Model.swift */; };
 		CFA858281C9A957100117D48 /* TMModel.h in Headers */ = {isa = PBXBuildFile; fileRef = CFA858271C9A957100117D48 /* TMModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CFA8582F1C9A957100117D48 /* TMModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA858241C9A957000117D48 /* TMModel.framework */; };
 		CFA858341C9A957100117D48 /* TMModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA858331C9A957100117D48 /* TMModelTests.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF6864FE1CE1E9BC004B79C7 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		CFA858241C9A957000117D48 /* TMModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TMModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA858271C9A957100117D48 /* TMModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMModel.h; sourceTree = "<group>"; };
 		CFA858291C9A957100117D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				CFA858331C9A957100117D48 /* TMModelTests.swift */,
 				CFA858351C9A957100117D48 /* Info.plist */,
+				CF6864FE1CE1E9BC004B79C7 /* Model.swift */,
 			);
 			path = TMModelTests;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFA858341C9A957100117D48 /* TMModelTests.swift in Sources */,
+				CF6864FF1CE1E9BC004B79C7 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

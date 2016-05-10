@@ -10,7 +10,7 @@ import Foundation
 
 public protocol JSONConvertible {
     static func generateModel(data: [String: AnyObject]) -> Self
-    static func convertToDictionary(model: Self) -> [String: AnyObject]
+    func convertToDictionary() -> [String: AnyObject]
 }
 
 public extension JSONConvertible where Self: NSObject {
@@ -28,7 +28,6 @@ public extension JSONConvertible where Self: NSObject {
      */
     static func generateModel(data: [String: AnyObject]) -> Self {
         let model = Self()
-        
         for (key, value) in data {
             guard model.respondsToSelector(Selector("\(key)")) else {
                 continue
@@ -49,14 +48,14 @@ public extension JSONConvertible where Self: NSObject {
      
      - returns: A JSON dictionary with properties' names as keys.
      */
-    static func convertToDictionary(model: Self) -> [String: AnyObject] {
+    func convertToDictionary() -> [String: AnyObject] {
         var dic = [String: AnyObject]()
         var outCount: UInt32 = 0
         let properties = class_copyPropertyList(Self.self, &outCount)
         for i in 0..<Int(outCount) {
             let property = properties[i]
             guard let key = String(CString: property_getName(property), encoding: NSUTF8StringEncoding) else { continue }
-            let value = model.valueForKey(key)
+            let value = self.valueForKey(key)
             dic[key] = value
         }
         return dic
