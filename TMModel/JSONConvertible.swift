@@ -29,9 +29,7 @@ public extension JSONConvertible where Self: NSObject {
     static func generateModel(data: [String: AnyObject]) -> Self {
         let model = Self()
         for (key, value) in data {
-            guard model.respondsToSelector(Selector("\(key)")) else {
-                continue
-            }
+            guard model.respondsToSelector(Selector("\(key)")) else { continue }
             if let number = value as? NSNumber {
                 model.setValue("\(number)", forKey: key)
             } else {
@@ -51,7 +49,7 @@ public extension JSONConvertible where Self: NSObject {
     func convertToDictionary() -> [String: AnyObject] {
         var dic = [String: AnyObject]()
         var outCount: UInt32 = 0
-        let properties = class_copyPropertyList(Self.self, &outCount)
+        let properties = class_copyPropertyList(self.dynamicType, &outCount)
         for i in 0..<Int(outCount) {
             let property = properties[i]
             guard let key = String(CString: property_getName(property), encoding: NSUTF8StringEncoding) else { continue }
