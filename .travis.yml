@@ -1,10 +1,10 @@
 language: swift
 # script:
 #   - xctool -project TMModel.xcodeproj -scheme TMModel build test -sdk iphonesimulator GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
-# after_success:
-# - bash <(curl -s https://codecov.io/bash)
+after_success:
+- bash <(curl -s https://codecov.io/bash)
 
-# script: 
+# script:
 #   - xcodebuild -scheme TMModel -project TMModel.xcodeproj -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=8.1' build test
 # after_success:
 #   - bash <(curl -s https://codecov.io/bash) -J 'TMModel'
@@ -15,7 +15,7 @@ xcode_project: TMModel.xcodeproj
 xcode_scheme: TMModel
 xcode_sdk: iphonesimulator9.2
 env:
-  global: 
+  global:
     - FRAMEWORK_NAME=TMModel
 # before_install:
 #   - brew update
@@ -23,7 +23,7 @@ env:
 # before_script:
 #   # bootstrap the dependencies for the project
 #   # you can remove if you don't have dependencies
-#   - carthage bootstrap  
+#   - carthage bootstrap
 # before_deploy:
 #   - carthage build --no-skip-current
 #   - carthage archive $FRAMEWORK_NAME
@@ -32,4 +32,3 @@ skip_cleanup: true
 on:
   repo: repo/repo
   tags: true
-
