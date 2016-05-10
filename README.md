@@ -55,11 +55,11 @@ Put `github "CaptainTeemo/TMModel"` in your cartfile and run `carthage update` f
 That's all.
 
 ## Step by step
-1. Make your model class inheritance from NSObject
-2. Mark your class as final
-3. Conform to protocol JSONConvertible
-4. Declare all properties you need from JSON
-5. Please check step 6
-6. There's no step 6
+1. Make your model class inheriting from `NSObject` (our implementation depends on the Objective-C Runtime, check source code for details);
+2. Mark your class as `final`;
+3. Conform to protocol `JSONConvertible`, and your class got JSON-to-model convertion (or vice versa) for free;
+4. Declare all properties you need from JSON;
+5. Please check step 6;
+6. There's no step 6 :p
 
 
