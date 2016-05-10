@@ -51,7 +51,7 @@ class TMModelTests: XCTestCase {
         print(student.sampleDic)
         // prints ["lang": "Swift", "ver": "2.1"]]
         
-        let data = Student.convertToDictionary(student)
+        let data = student.convertToDictionary()
         print(data)
         // prints [
         //    "id": "4096",
