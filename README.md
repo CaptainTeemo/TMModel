@@ -10,7 +10,7 @@ An elegant, protocol-oriented tool, help convert JSON to Model or vice versa.
 final class Student: NSObject, JSONConvertible {
     var id = ""
     var name = ""
-    var sampleDigit = 0
+    var sampleDigit = ""
     var sampleArray = [Int]()
     var sampleDic = [String: AnyObject]()
 }
