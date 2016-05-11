@@ -12,8 +12,8 @@ import TMModel
 final class Student: NSObject, JSONConvertible {
     var id = ""
     var name = ""
-    var sampleDigit = 0
-    var sampleFloat: Float = 0
+    var sampleDigit = ""
+    var sampleFloat = ""
     var sampleArray = [Int]()
     var sampleDic = [String: AnyObject]()
 }
