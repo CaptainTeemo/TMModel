@@ -28,9 +28,9 @@ class TMModelTests: XCTestCase {
             "sampleDigit": 666,
             "sampleFloat": 0.22222,
             "sampleArray": [1, 2, 3, 4, 5, 6],
-            "sampleDic": ["lang": "Swift", "ver": "2.1"]
+            "sampleDic": ["lang": "Swift", "ver": "2.1", "info": ["date": "2016"]]
         ]
-        
+            
         let student = Student.generateModel(dic)
         XCTAssert(student.id == "4096")
         XCTAssert(student.name == "Teemo")
@@ -40,7 +40,7 @@ class TMModelTests: XCTestCase {
         XCTAssert(student.sampleDic["lang"] as? String == "Swift")
         XCTAssert(student.sampleDic["ver"] as? String == "2.1")
         
-        let data = student.convertToDictionary()
-        print(data)
+        let resultData = student.convertToDictionary()
+        print(resultData)
     }
 }

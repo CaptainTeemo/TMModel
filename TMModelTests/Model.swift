@@ -31,3 +31,20 @@ final class User: NSObject, JSONConvertible {
         print("id: \(id)\n name: \(name)\n email: \(email)\n address: \(address)\n phone: \(phone)\n website: \(website)\n company: \(company)")
     }
 }
+
+public final class Media: NSObject, JSONConvertible {
+    public var type = ""
+    public var videos = [String: AnyObject]()
+    public var users_in_photo = [String: AnyObject]()
+    public var filter = ""
+    public var tags = [String]()
+    public var comments = [String: AnyObject]()
+    public var caption = ""
+    public var likes = [String]()
+    public var link = ""
+    public var user = [String: AnyObject]()
+    public var created_time = ""
+    public var images = [String: AnyObject]()
+    public var id = ""
+    public var location = ""
+}
